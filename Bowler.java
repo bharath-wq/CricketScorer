@@ -33,20 +33,37 @@ public class Bowler extends BowlingScore{
         }
     }
 
-    public void completeScorecard(String bowlerName, Integer[] over ){
+    public synchronized void bowlerover(String bowlerName, Integer[] over){
         try {
             File bowlingscore = new File("BowlingScorecard.txt");
             BufferedReader bfr = new BufferedReader(new FileReader(bowlingscore));
-            BufferedWriter bfw = new BufferedWriter(new FileWriter(bowlingscore,true));
+            BufferedWriter bfw = new BufferedWriter(new FileWriter(bowlingscore, true));
+            BufferedWriter bfw2 = new BufferedWriter(new FileWriter(bowlingscore, false));
+            int overs = 0;
+            int maiden = 0;
+            int runs = 0;
+            int wickets = 0;
+            double econ = 0.0;
+            int wide = 0;
+            int noball = 0;
+            for(int i = 0; i < over.length-1; i++){
+                runs += over[i];
+                if (i == 5){
+                    overs += 1;
+
+                }
+            }
+            if (bfr.readLine().contains(bowlerName)){
+                bfw2.write(String.format("%20s %20s %20s %20s %20s %20s %20s %20s", bowlerName, "Over", "Maiden", "Runs", "Wickets", "ECON", "WD", "NB" ));
+            }
+            else{
+
+            }
+            bfw.write(String.format("%20s %20s %20s %20s %20s %20s %20s %20s", bowlerName, "Over", "Maiden", "Runs", "Wickets", "ECON", "WD", "NB" ));
+        }
+        catch (Exception e) {
 
         }
-        catch (Exception e){
-
-        }
-
-    }
-    public Array bowlerover(String bowlerName, Integer[] over){
-
     }
 
 
