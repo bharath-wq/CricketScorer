@@ -76,29 +76,71 @@ public class BowlingScore {
                 wide +=6;
                 bowlingover.add("++++++");
             }
-        } else if (ballrep == "b1" || ballrep == "b2" || ballrep == "b3" || ballrep == "b4" || ballrep == "b5" || ballrep == "b6") {
-            if (ballrep.length() == "lb1"){
-                wide += 1;
-                bowlingover.add("+");
-            } else if (ballrep.length() == 2) {
-                wide += 2;
-                bowlingover.add("++");
-            } else if (ballrep.length() == 3) {
-                wide += 3;
-                bowlingover.add("+++");
-            } else if (ballrep.length() == 4) {
-                wide +=4;
-                bowlingover.add("++++");
-            } else if (ballrep.length() == 5) {
-                wide +=5;
-                bowlingover.add("+++++");
-            } else if (ballrep.length() == 6) {
-                wide +=6;
-                bowlingover.add("++++++");
+        } else if (ballrep.equals("b1") || ballrep.equals("b2") || ballrep.equals("b3") || ballrep.equals("b4") || ballrep.equals("b5") || ballrep.equals("b6")) {
+            if (ballrep.contains("1")){
+                byes += 1;
+                bowlingover.add("b1");
+            } else if (ballrep.contains("2")) {
+                byes += 2;
+                bowlingover.add("b2");
+            } else if (ballrep.contains("3")) {
+                byes += 3;
+                bowlingover.add("b3");
+            } else if (ballrep.contains("4")) {
+                byes +=4;
+                bowlingover.add("b4");
+            } else if (ballrep.contains("5")) {
+                byes +=5;
+                bowlingover.add("b5");
+            } else if (ballrep.contains("6")) {
+                byes +=6;
+                bowlingover.add("b6");
             }
-        } else if (ballrep == "lb1" || ballrep == "lb2" || ballrep == "lb3" || ballrep == "lb4" || ballrep == "lb5" || ballrep == "lb6") {
-
+        } else if (ballrep.equals("lb1") || ballrep.equals("lb2") || ballrep.equals("lb3") || ballrep.equals("lb4") || ballrep.equals("lb5") || ballrep.equals("lb6")) {
+            if (ballrep.contains("1")){
+                leg_byes += 1;
+                bowlingover.add("lb1");
+            } else if (ballrep.contains("2")) {
+                leg_byes += 2;
+                bowlingover.add("lb2");
+            } else if (ballrep.contains("3")) {
+                leg_byes += 3;
+                bowlingover.add("lb3");
+            } else if (ballrep.contains("4")) {
+                leg_byes +=4;
+                bowlingover.add("lb4");
+            } else if (ballrep.contains("5")) {
+                leg_byes +=5;
+                bowlingover.add("lb5");
+            } else if (ballrep.contains("6")) {
+                leg_byes +=6;
+                bowlingover.add("lb6");
+            }
+        } else if (ballrep.equals("nb") || ballrep.equals("nb1") || ballrep.equals("nb2") || ballrep.equals("nb3") || ballrep.equals("nb4") || ballrep.equals("nb5") || ballrep.equals("nb6")) {
+            if (ballrep.contains("1")){
+                noball += 2;
+                bowlingover.add("nb1");
+            } else if (ballrep.contains("2")) {
+                noball += 3;
+                bowlingover.add("nb2");
+            } else if (ballrep.contains("3")) {
+                noball += 4;
+                bowlingover.add("nb3");
+            } else if (ballrep.contains("4")) {
+                noball +=5;
+                bowlingover.add("nb4");
+            } else if (ballrep.contains("5")) {
+                noball +=6;
+                bowlingover.add("nb5");
+            } else if (ballrep.contains("6")) {
+                noball +=7;
+                bowlingover.add("nb6");
+            } else {
+                noball +=1;
+                bowlingover.add("nb");
+            }
         }
+
         return bowlingover;
     }
 
